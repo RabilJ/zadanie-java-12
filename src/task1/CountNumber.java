@@ -11,15 +11,14 @@ import java.util.List;
 public class CountNumber {
     public static void main(String[] args)throws IOException {
         File file = new File("numbers.txt");
-        file.createNewFile();
         BufferedReader bfr = new BufferedReader(new FileReader(file));
 
         String line = "";
         List<Integer>numbery = new ArrayList<>();
         while((line=bfr.readLine())!=null){
             String []values = line.split("\n");
-            for (int i = 0; i < values.length; i++) {
-                numbery.add(Integer.parseInt(values[i]));
+            for (String value : values) {
+                numbery.add(Integer.parseInt(value));
             }
         }
         Collections.sort(numbery);
